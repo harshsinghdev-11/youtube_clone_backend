@@ -118,12 +118,23 @@ const worker = new Worker(
     console.log("Saved video metadata:", title);
     console.log("Thumbnail URL:", thumbnailUrl);
 
-    try {
-      fs.rmSync(outputPath, { recursive: true, force: true });
-    } catch {}
-    try {
-      fs.unlinkSync(videoPath);
-    } catch {}
+    await new Promise(res => setTimeout(res, 1000));
+
+try {
+  const resolvedOutputPath = path.resolve(outputPath);
+  fs.rmSync(resolvedOutputPath, { recursive: true, force: true });
+  console.log("Deleted output folder:", resolvedOutputPath);
+} catch (err) {
+  console.error("Failed to delete output folder:", err.message);
+}
+
+try {
+  const resolvedVideoPath = path.resolve(videoPath);
+  fs.unlinkSync(resolvedVideoPath);
+  console.log("Deleted original video:", resolvedVideoPath);
+} catch (err) {
+  console.error("Failed to delete original video:", err.message);
+}
     await job.updateProgress(100);
     console.log("Video processed & uploaded successfully:", videoUrl);
   },
