@@ -15,7 +15,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 });
 
 
-const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID || "5bd2b9091c42540c5ce6213c2fb59023";
+const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID ;
 const BUCKET_NAME = process.env.R2_BUCKET_NAME;
 const ENDPOINT = `https://${ACCOUNT_ID}.r2.cloudflarestorage.com`;
 
