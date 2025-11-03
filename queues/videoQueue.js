@@ -1,9 +1,11 @@
 const {Queue} = require("bullmq");
 const {v4} = require("uuid");
-
+const logger = require("../utils/logger")
+const dotenv = require("dotenv");
+dotenv.config();
 const connection = {
-    host:"127.0.0.1",
-    port:6379,
+  host: process.env.REDIS_HOST || 'redis',
+  port: Number(process.env.REDIS_PORT) || 6379,
 };
 
 const videoQueue= new Queue("video-processing",{connection});
@@ -12,7 +14,7 @@ const videoQueue= new Queue("video-processing",{connection});
 async function addVideoJob(data){
     const jobId = v4();
     await videoQueue.add("convertToHLS",data,{jobId});
-    console.log("Added job:",jobId);
+    logger.log("Added job:",jobId);
     return jobId;
 }
 

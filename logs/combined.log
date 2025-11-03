@@ -1,0 +1,48 @@
+2025-11-02 22:11:35 [[31merror[39m]: TypeError: Cannot create property 'Symbol(level)' on string 'MongoDB connected'
+    at DerivedLogger.log (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\winston\lib\winston\logger.js:236:20)
+    at connectDB (C:\Users\harsh\Desktop\web_development\youtube_clone\config\db.js:6:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-11-02 22:15:59 [[31merror[39m]: TypeError: Cannot create property 'Symbol(level)' on string 'MongoDB connected'
+    at DerivedLogger.log (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\winston\lib\winston\logger.js:236:20)
+    at connectDB (C:\Users\harsh\Desktop\web_development\youtube_clone\config\db.js:6:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-11-02 22:16:31 [[31merror[39m]: TypeError: Cannot create property 'Symbol(level)' on string 'MongoDB connected'
+    at DerivedLogger.log (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\winston\lib\winston\logger.js:236:20)
+    at connectDB (C:\Users\harsh\Desktop\web_development\youtube_clone\config\db.js:6:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-11-02 22:17:13 [[31merror[39m]: TypeError: Cannot create property 'Symbol(level)' on string 'MongoDB connected'
+    at DerivedLogger.log (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\winston\lib\winston\logger.js:236:20)
+    at connectDB (C:\Users\harsh\Desktop\web_development\youtube_clone\config\db.js:6:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-11-02 22:17:35 [[31merror[39m]: TypeError: Cannot create property 'Symbol(level)' on string 'MongoDB connected'
+    at DerivedLogger.log (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\winston\lib\winston\logger.js:236:20)
+    at connectDB (C:\Users\harsh\Desktop\web_development\youtube_clone\config\db.js:6:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-11-02 22:17:57 [[31merror[39m]: TypeError: Cannot create property 'Symbol(level)' on string 'MongoDB connected'
+    at DerivedLogger.log (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\winston\lib\winston\logger.js:236:20)
+    at connectDB (C:\Users\harsh\Desktop\web_development\youtube_clone\config\db.js:6:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-11-02 22:18:18 [[31merror[39m]: TypeError: Cannot create property 'Symbol(level)' on string 'MongoDB connected'
+    at DerivedLogger.log (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\winston\lib\winston\logger.js:236:20)
+    at connectDB (C:\Users\harsh\Desktop\web_development\youtube_clone\config\db.js:6:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-11-02 22:18:33 [[31merror[39m]: TypeError: Cannot create property 'Symbol(level)' on string 'MongoDB connected'
+    at DerivedLogger.log (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\winston\lib\winston\logger.js:236:20)
+    at connectDB (C:\Users\harsh\Desktop\web_development\youtube_clone\config\db.js:6:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-11-02 22:18:39 [[31merror[39m]: TypeError: Cannot create property 'Symbol(level)' on string 'MongoDB connected'
+    at DerivedLogger.log (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\winston\lib\winston\logger.js:236:20)
+    at connectDB (C:\Users\harsh\Desktop\web_development\youtube_clone\config\db.js:6:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-11-02 22:19:01 [[31merror[39m]: TypeError: Cannot create property 'Symbol(level)' on string 'MongoDB connected'
+    at DerivedLogger.log (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\winston\lib\winston\logger.js:236:20)
+    at connectDB (C:\Users\harsh\Desktop\web_development\youtube_clone\config\db.js:6:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-11-02 22:19:15 [[31merror[39m]: TypeError: Cannot create property 'Symbol(level)' on string 'MongoDB connected'
+    at DerivedLogger.log (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\winston\lib\winston\logger.js:236:20)
+    at connectDB (C:\Users\harsh\Desktop\web_development\youtube_clone\config\db.js:6:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-11-02 22:19:37 [[31merror[39m]: TypeError: Cannot create property 'Symbol(level)' on string 'MongoDB connected'
+    at DerivedLogger.log (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\winston\lib\winston\logger.js:236:20)
+    at connectDB (C:\Users\harsh\Desktop\web_development\youtube_clone\config\db.js:6:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)

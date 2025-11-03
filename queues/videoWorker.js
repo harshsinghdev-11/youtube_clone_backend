@@ -7,12 +7,15 @@ const mime = require("mime-types");
 const AWS = require("aws-sdk");
 const Video = require("../models/Video");
 const { stderr } = require("process");
+const logger = require("../utils/logger")
 require("dotenv").config();
 
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+
+async function connectDB(){
+  await mongoose.connect(process.env.MONGO_URI);
+}
+
+connectDB();
 
 
 const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID ;
@@ -37,15 +40,19 @@ async function uploadToR2(filePath, key, contentType) {
   };
   try {
     const data = await s3.upload(params).promise();
-    console.log("Uploaded:", key);
+    logger.log("Uploaded:", key);
     return data.Location;
   } catch (err) {
-    console.error("Upload failed for", key, err.message);
+    logger.error("Upload failed for", key, err.message);
     throw err;
   }
 }
 
-const connection = { host: "127.0.0.1", port: 6379 };
+const connection = {
+  host: process.env.REDIS_HOST || "127.0.0.1",
+  port: Number(process.env.REDIS_PORT) || 6379,
+};
+
 
 async function generateThumbnail(videoPath,outputPath,timeStamp="00:00:02") {
     return new Promise((resolve,reject)=>{
@@ -54,10 +61,10 @@ async function generateThumbnail(videoPath,outputPath,timeStamp="00:00:02") {
     
         exec(thumbnailCommand,(error,stout,stderr)=>{
             if(error){
-                console.error("Thumbnail error:",error);
+                logger.error("Thumbnail error:",error);
                 return reject(error);
             }
-            console.log("thumbnail generated:",thumbnailPath);
+            logger.log("thumbnail generated:",thumbnailPath);
             resolve(thumbnailPath);
         })
     })
@@ -75,7 +82,7 @@ const worker = new Worker(
 
     await job.updateProgress(10);
     const mainThumbnailPath = await generateThumbnail(videoPath,outputPath,"00:00:02");
-    console.log("Thumbnail generated");
+    logger.log("Thumbnail generated");
 
     await job.updateProgress(15);
 
@@ -85,10 +92,10 @@ const worker = new Worker(
     await new Promise((resolve, reject) => {
       exec(ffmpegCommand, (error, stdout, stderr) => {
         if (error) {
-          console.error("FFmpeg error:", stderr);
+          logger.error("FFmpeg error:", stderr);
           return reject(error);
         }
-        console.log("Video converted to HLS:", hlsPath);
+        logger.log("Video converted to HLS:", hlsPath);
         resolve();
       });
     });
@@ -112,35 +119,35 @@ const worker = new Worker(
 
 
     await new Video({ title, description, uploader, videoUrl,thumbnailUrl }).save();
-    console.log("Saved video metadata:", title);
+    logger.log("Saved video metadata:", title);
 
 
-    console.log("Saved video metadata:", title);
-    console.log("Thumbnail URL:", thumbnailUrl);
+    logger.log("Saved video metadata:", title);
+    logger.log("Thumbnail URL:", thumbnailUrl);
 
     await new Promise(res => setTimeout(res, 1000));
 
 try {
   const resolvedOutputPath = path.resolve(outputPath);
   fs.rmSync(resolvedOutputPath, { recursive: true, force: true });
-  console.log("Deleted output folder:", resolvedOutputPath);
+  logger.log("Deleted output folder:", resolvedOutputPath);
 } catch (err) {
-  console.error("Failed to delete output folder:", err.message);
+  logger.error("Failed to delete output folder:", err.message);
 }
 
 try {
   const resolvedVideoPath = path.resolve(videoPath);
   fs.unlinkSync(resolvedVideoPath);
-  console.log("Deleted original video:", resolvedVideoPath);
+  logger.log("Deleted original video:", resolvedVideoPath);
 } catch (err) {
-  console.error("Failed to delete original video:", err.message);
+  logger.error("Failed to delete original video:", err.message);
 }
     await job.updateProgress(100);
-    console.log("Video processed & uploaded successfully:", videoUrl);
+    logger.log("Video processed & uploaded successfully:", videoUrl);
   },
   { connection }
 );
 
 
-worker.on("completed", (job) => console.log(`Job ${job.id} completed`));
-worker.on("failed", (job, err) => console.error(`Job ${job?.id} failed:`, err));
+worker.on("completed", (job) => logger.log(`Job ${job.id} completed`));
+worker.on("failed", (job, err) => logger.error(`Job ${job?.id} failed:`, err));

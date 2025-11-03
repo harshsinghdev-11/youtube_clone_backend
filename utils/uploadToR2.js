@@ -6,6 +6,7 @@ const dotenv = require("dotenv");
 const AWS = require("aws-sdk");
 const fs = require("fs");
 const path = require("path");
+const logger = require("../utils/logger")
 
 dotenv.config();
 async function uploadToR2(localPath,key,contentType) {
@@ -17,7 +18,7 @@ async function uploadToR2(localPath,key,contentType) {
         ContentType:contentType
     }
     const data = await s3.upload(params).promise();
-    console.log(data);
+    logger.log(data);
 
     return `${process.env.S3_PUBLIC_URL}/${key}`;
 }

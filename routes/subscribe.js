@@ -3,7 +3,7 @@ const router =express.Router();
 const Video = require("../models/Video");
 const User = require("../models/User");
 const { protect } = require("../middleware/authMiddleware");
-
+const logger = require("../utils/logger")
 
 router.post("/:channelId",protect,async(req,res)=>{
   const {channelId} = req.params;
@@ -36,7 +36,7 @@ router.post("/:channelId",protect,async(req,res)=>{
       msg:"Subscribed"
     })
   } catch (error) {
-    console.log("Error in subscribe api: ",error);
+    logger.log("Error in subscribe api: ",error);
     res.status(500).json({
       msg:"Server error"
     })
@@ -52,7 +52,7 @@ router.get("/status/:channelId",protect,async(req,res)=>{
       subscribed:isSubscribed
     })
   } catch (error) {
-    console.log("error: ",error);
+    logger.log("error: ",error);
     res.status(500).json({
       msg:"Server error"
     })
@@ -65,7 +65,7 @@ router.get("/count/:channelId", async (req, res) => {
     if (!channel) return res.status(404).json({ msg: "Channel not found" });
     res.json({ subscribers: channel.subscribers });
   } catch (error) {
-    console.log("Error fetching subscriber count:", error);
+    logger.log("Error fetching subscriber count:", error);
     res.status(500).json({ msg: "Server error" });
   }
 });

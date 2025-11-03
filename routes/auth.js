@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 const User = require("../models/User");
 const { generateAccessToken, generateRefreshToken } = require("../utils/generateToken");
 const { protect } = require("../middleware/authMiddleware");
+const logger = require("../utils/logger")
 
 const router = express.Router();
 
@@ -48,7 +49,7 @@ router.post("/register", async (req, res) => {
       },
     });
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     res.status(500).json({ error: "Server error" });
   }
 });
@@ -93,7 +94,7 @@ router.post("/login", async (req, res) => {
       },
     });
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     res.status(500).json({ error: "Server error" });
   }
 });
@@ -111,7 +112,7 @@ router.get("/me", protect, async (req, res) => {
     if (!user) return res.status(404).json({ error: "User not found" });
     res.json({ user });
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     res.status(500).json({ error: "Server error" });
   }
 });

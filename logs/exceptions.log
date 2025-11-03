@@ -1,0 +1,101 @@
+2025-11-02 22:15:43 [[31merror[39m]: C:\Users\harsh\Desktop\web_development\youtube_clone\middleware\authMiddleware.js:4
+const logger
+      ^^^^^^
+
+SyntaxError: Missing initializer in const declaration
+    at wrapSafe (node:internal/modules/cjs/loader:1469:18)
+    at Module._compile (node:internal/modules/cjs/loader:1491:20)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1691:10)
+    at Module.load (node:internal/modules/cjs/loader:1317:32)
+    at Module._load (node:internal/modules/cjs/loader:1127:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:217:24)
+    at Module.require (node:internal/modules/cjs/loader:1339:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (C:\Users\harsh\Desktop\web_development\youtube_clone\routes\auth.js:6:21)
+2025-11-02 22:16:07 [[31merror[39m]: C:\Users\harsh\Desktop\web_development\youtube_clone\queues\videoQueue.js:5
+const connection = {
+^^^^^
+
+SyntaxError: Unexpected token 'const'
+    at wrapSafe (node:internal/modules/cjs/loader:1469:18)
+    at Module._compile (node:internal/modules/cjs/loader:1491:20)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1691:10)
+    at Module.load (node:internal/modules/cjs/loader:1317:32)
+    at Module._load (node:internal/modules/cjs/loader:1127:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:217:24)
+    at Module.require (node:internal/modules/cjs/loader:1339:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (C:\Users\harsh\Desktop\web_development\youtube_clone\routes\video.js:29:37)
+2025-11-02 22:17:37 [[31merror[39m]: C:\Users\harsh\Desktop\web_development\youtube_clone\routes\auth.js:7
+const lo
+      ^^
+
+SyntaxError: Missing initializer in const declaration
+    at wrapSafe (node:internal/modules/cjs/loader:1469:18)
+    at Module._compile (node:internal/modules/cjs/loader:1491:20)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1691:10)
+    at Module.load (node:internal/modules/cjs/loader:1317:32)
+    at Module._load (node:internal/modules/cjs/loader:1127:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:217:24)
+    at Module.require (node:internal/modules/cjs/loader:1339:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (C:\Users\harsh\Desktop\web_development\youtube_clone\index.js:17:20)
+2025-11-02 22:18:28 [[31merror[39m]: TypeError [ERR_INVALID_ARG_VALUE]: The argument 'id' must be a non-empty string. Received ''
+    at Module.require (node:internal/modules/cjs/loader:1334:11)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (C:\Users\harsh\Desktop\web_development\youtube_clone\routes\subscribe.js:6:16)
+    at Module._compile (node:internal/modules/cjs/loader:1546:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1691:10)
+    at Module.load (node:internal/modules/cjs/loader:1317:32)
+    at Module._load (node:internal/modules/cjs/loader:1127:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:217:24)
+    at Module.require (node:internal/modules/cjs/loader:1339:12)
+2025-11-02 22:20:09 [[31merror[39m]: TypeError: Cannot create property 'Symbol(level)' on string 'Server is running on http://localhost:8000'
+    at DerivedLogger.log (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\winston\lib\winston\logger.js:236:20)
+    at Server.<anonymous> (C:\Users\harsh\Desktop\web_development\youtube_clone\index.js:41:10)
+    at Server.f (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\once\once.js:25:25)
+    at Object.onceWrapper (node:events:634:28)
+    at Server.emit (node:events:532:35)
+    at Server.emit (node:domain:488:12)
+    at emitListeningNT (node:net:1946:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+2025-11-02 22:20:30 [[31merror[39m]: TypeError: Cannot create property 'Symbol(level)' on string 'Server is running on http://localhost:8000'
+    at DerivedLogger.log (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\winston\lib\winston\logger.js:236:20)
+    at Server.<anonymous> (C:\Users\harsh\Desktop\web_development\youtube_clone\index.js:41:10)
+    at Server.f (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\once\once.js:25:25)
+    at Object.onceWrapper (node:events:634:28)
+    at Server.emit (node:events:532:35)
+    at Server.emit (node:domain:488:12)
+    at emitListeningNT (node:net:1946:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+2025-11-02 22:20:41 [[31merror[39m]: TypeError: Cannot create property 'Symbol(level)' on string 'Server is running on http://localhost:8000'
+    at DerivedLogger.log (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\winston\lib\winston\logger.js:236:20)
+    at Server.<anonymous> (C:\Users\harsh\Desktop\web_development\youtube_clone\index.js:41:10)
+    at Server.f (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\once\once.js:25:25)
+    at Object.onceWrapper (node:events:634:28)
+    at Server.emit (node:events:532:35)
+    at Server.emit (node:domain:488:12)
+    at emitListeningNT (node:net:1946:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+2025-11-02 22:21:24 [[31merror[39m]: TypeError: Cannot create property 'Symbol(level)' on string 'Server is running on http://localhost:8000'
+    at DerivedLogger.log (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\winston\lib\winston\logger.js:236:20)
+    at Server.<anonymous> (C:\Users\harsh\Desktop\web_development\youtube_clone\index.js:41:10)
+    at Server.f (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\once\once.js:25:25)
+    at Object.onceWrapper (node:events:634:28)
+    at Server.emit (node:events:532:35)
+    at Server.emit (node:domain:488:12)
+    at emitListeningNT (node:net:1946:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+2025-11-03 22:24:04 [[31merror[39m]: TypeError: Cannot create property 'Symbol(level)' on string 'Server is running on http://localhost:8000'
+    at DerivedLogger.log (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\winston\lib\winston\logger.js:236:20)
+    at Server.<anonymous> (C:\Users\harsh\Desktop\web_development\youtube_clone\index.js:42:10)
+    at Server.f (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\once\once.js:25:25)
+    at Object.onceWrapper (node:events:634:28)
+    at Server.emit (node:events:532:35)
+    at Server.emit (node:domain:488:12)
+    at emitListeningNT (node:net:1946:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)

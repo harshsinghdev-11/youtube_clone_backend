@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/User")
 const dotenv = require("dotenv");
+const logger = require("../utils/logger")
 dotenv.config();
 const protect  = async(req,res,next)=>{
     try {
@@ -16,7 +17,7 @@ const protect  = async(req,res,next)=>{
         req.user = await User.findById(decoded.id).select("-password");
         next();
     } catch (error) {
-       console.error("Auth error:", error);
+       logger.error("Auth error:", error);
     res.status(401).json({ success: false, msg: "Not authorized" }); 
     }
 }

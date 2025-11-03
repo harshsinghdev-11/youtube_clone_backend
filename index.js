@@ -18,6 +18,7 @@ const authRoutes = require("./routes/auth")
 const videoRoutes = require("./routes/video");
 const commentRoutes = require("./routes/comment")
 const subscribeRoutes = require("./routes/subscribe")
+const logger = require("./utils/logger")
 
 
 
@@ -29,14 +30,14 @@ app.use(cors({
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser()); // Move this BEFORE routes
+app.use(cookieParser()); 
 app.use("/uploads", express.static("uploads"));
 app.use("/api/auth",authRoutes);
 app.use("/api/video",videoRoutes);
 app.use("/api/comment",commentRoutes);
 app.use("/api/subscribe",subscribeRoutes);
 
-
-app.listen(8000, () => {
-  console.log("Server is running on http://localhost:8000");
+const PORT = process.env.PORT || 8000;
+app.listen(PORT,'0.0.0.0', () => {
+  logger.log(`Server is running on http://0.0.0.0:${PORT}`);
 });
