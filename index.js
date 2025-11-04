@@ -1,3 +1,4 @@
+
 const express = require("express");
 const cors = require("cors");
 const multer = require("multer");
@@ -7,6 +8,7 @@ const fs = require("fs");
 const { exec } = require("child_process");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
+
 const app = express();
 
 //DB
@@ -39,5 +41,5 @@ app.use("/api/subscribe",subscribeRoutes);
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT,'0.0.0.0', () => {
-  logger.log(`Server is running on http://0.0.0.0:${PORT}`);
+  console.log(`Server is running on http://0.0.0.0:${PORT}`);
 });
