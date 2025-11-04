@@ -4,13 +4,9 @@ const logger = require("../utils/logger")
 const dotenv = require("dotenv");
 dotenv.config();
 
-const connection = process.env.UPSTASH_REDIS_REST_URL
-  ? { url: process.env.UPSTASH_REDIS_REST_URL }
-  : {
-      host: process.env.REDIS_HOST || 'redis',
-      port: Number(process.env.REDIS_PORT) || 6379,
-    };
-
+const connection = {
+  url: process.env.UPSTASH_REDIS_URL,
+};
 const videoQueue= new Queue("video-processing",{connection});
 
 
