@@ -13,7 +13,7 @@ const videoQueue= new Queue("video-processing",{connection});
 async function addVideoJob(data){
     const jobId = v4();
     await videoQueue.add("convertToHLS",data,{jobId});
-    logger.log("Added job:",jobId);
+    console.log("Added job:",jobId);
     return jobId;
 }
 

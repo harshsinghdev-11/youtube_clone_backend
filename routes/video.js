@@ -10,8 +10,7 @@
   const router = express.Router();
   dotenv.config();
   const AWS = require("aws-sdk")
-  const logger = require("../utils/logger")
-
+  
   // Ensure uploads folder exists
   if (!fs.existsSync("./uploads")) {
     fs.mkdirSync("./uploads", { recursive: true });
@@ -49,7 +48,7 @@
         jobId:jobId
       })
     } catch (err) {
-      logger.error(err);
+      console.error(err);
       res.status(500).json({ error: "Server error during upload" });
     }
   });
@@ -81,7 +80,7 @@
         videos
       })
     } catch (error) {
-      logger.error(error);
+      console.error(error);
       res.status(500).json({
         msg:"server error",
         error:error.message
@@ -103,7 +102,7 @@
         
       res.json(videos);
     } catch (err) {
-      logger.error(err);
+      console.error(err);
       res.status(500).json({ error: "Failed to fetch videos" });
     }
   });
@@ -122,7 +121,7 @@
         
       res.json(videos);
     } catch (err) {
-      logger.error(err);
+      console.error(err);
       res.status(500).json({ error: "Failed to fetch videos" });
     }
   })
@@ -139,7 +138,7 @@
       await video.save();
       res.json(video);
     } catch (err) {
-      logger.error(err);
+      console.error(err);
       res.status(500).json({ error: "Failed to get video" });
     }
   });
@@ -172,7 +171,7 @@
       likedByUser: updatedVideo.likes.includes(userId),
     });
   } catch (err) {
-    logger.error("Error liking video:", err);
+    console.error("Error liking video:", err);
     res.status(500).json({ error: "Failed to like video" });
   }
 });
@@ -203,7 +202,7 @@ async function retryable(fn, attempts = 3, baseDelay = 500) {
     } catch (err) {
       lastErr = err;
       const delay = baseDelay * Math.pow(2, i);
-      logger.warn(`Attempt ${i + 1} failed. Retrying after ${delay}ms...`, err.message);
+      console.warn(`Attempt ${i + 1} failed. Retrying after ${delay}ms...`, err.message);
       await sleep(delay);
     }
   }
@@ -272,7 +271,7 @@ router.delete("/:id", protect, async (req, res) => {
 
         if (deleteResult.errors.length) {
         
-          logger.error("Some keys failed to delete:", deleteResult.errors);
+          console.error("Some keys failed to delete:", deleteResult.errors);
           return res.status(500).json({
             msg: "Failed to delete all video files from storage",
             errors: deleteResult.errors.slice(0, 10), 
@@ -284,7 +283,7 @@ router.delete("/:id", protect, async (req, res) => {
     await video.deleteOne();
     return res.json({ msg: "Video deleted successfully" });
   } catch (err) {
-    logger.error("Error deleting video:", err);
+    console.error("Error deleting video:", err);
     return res.status(500).json({ msg: "Server error" });
   }
 });
