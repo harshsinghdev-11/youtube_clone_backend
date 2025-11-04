@@ -5,7 +5,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const connection = {
-  url: process.env.UPSTASH_REDIS_URL,
+  url: process.env.REDIS_URL,
 };
 const videoQueue= new Queue("video-processing",{connection});
 
