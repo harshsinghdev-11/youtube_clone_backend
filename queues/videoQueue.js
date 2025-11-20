@@ -10,8 +10,11 @@ dotenv.config();
 
 const connection = {
   host:process.env.REDIS_HOST,
-  port:process.env.REDIS_PORT
+  port:Number(process.env.REDIS_PORT),
+  password:process.env.REDIS_PASSWORD
 }
+console.log(typeof process.env.REDIS_PORT);
+
 
 
 const videoQueue= new Queue("video-processing",{connection});
