@@ -4,15 +4,15 @@ const logger = require("../utils/logger")
 const dotenv = require("dotenv");
 dotenv.config();
 
-// const connection = {
-//   url: process.env.REDIS_URL,
-// };
-
 const connection = {
-  host:process.env.REDIS_HOST,
-  port:Number(process.env.REDIS_PORT),
-  password:process.env.REDIS_PASSWORD
-}
+  url: process.env.REDIS_URL,
+};
+
+// const connection = {
+//   host:process.env.REDIS_HOST,
+//   port:Number(process.env.REDIS_PORT),
+//   password:process.env.REDIS_PASSWORD
+// }
 console.log(typeof process.env.REDIS_PORT);
 
 

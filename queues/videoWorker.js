@@ -48,15 +48,15 @@ async function uploadToR2(filePath, key, contentType) {
   }
 }
 
-// const connection = {
-//   url: process.env.REDIS_URL,
-// };
-
 const connection = {
-  host:process.env.REDIS_HOST,
-  port:Number(process.env.REDIS_PORT),
-  password:process.env.REDIS_PASSWORD
-}
+  url: process.env.REDIS_URL,
+};
+
+// const connection = {
+//   host:process.env.REDIS_HOST,
+//   port:Number(process.env.REDIS_PORT),
+//   password:process.env.REDIS_PASSWORD
+// }
 
 async function generateThumbnail(videoPath,outputPath,timeStamp="00:00:02") {
     return new Promise((resolve,reject)=>{
