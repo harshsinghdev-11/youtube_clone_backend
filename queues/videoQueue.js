@@ -4,9 +4,16 @@ const logger = require("../utils/logger")
 const dotenv = require("dotenv");
 dotenv.config();
 
+// const connection = {
+//   url: process.env.REDIS_URL,
+// };
+
 const connection = {
-  url: process.env.REDIS_URL,
-};
+  host:process.env.REDIS_HOST,
+  port:process.env.REDIS_PORT
+}
+
+
 const videoQueue= new Queue("video-processing",{connection});
 
 

@@ -68,3 +68,15 @@
     at handle (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\router\index.js:435:11)
     at Layer.handleRequest (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\router\lib\layer.js:152:17)
     at C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\router\index.js:295:15
+2025-11-11 10:24:41 [[31merror[39m]: TypeError: Cannot read properties of null (reading '_id')
+    at C:\Users\harsh\Desktop\web_development\youtube_clone\routes\auth.js:111:47
+    at Layer.handleRequest (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\router\lib\route.js:157:13)
+    at protect (C:\Users\harsh\Desktop\web_development\youtube_clone\middleware\authMiddleware.js:18:9)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-11-11 10:24:41 [[31merror[39m]: TypeError: Cannot read properties of null (reading '_id')
+    at C:\Users\harsh\Desktop\web_development\youtube_clone\routes\auth.js:111:47
+    at Layer.handleRequest (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\harsh\Desktop\web_development\youtube_clone\node_modules\router\lib\route.js:157:13)
+    at protect (C:\Users\harsh\Desktop\web_development\youtube_clone\middleware\authMiddleware.js:18:9)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
